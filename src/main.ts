@@ -111,6 +111,7 @@ async function run() {
         await checkEnvironment();
         const option = await getOption();
         await escapeGemfile(option);
+        // await installDanger(option);
         await ignoreRubyWarning();
         await runDanger(option);
         await unescapeGemfile();

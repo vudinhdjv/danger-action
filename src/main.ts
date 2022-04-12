@@ -60,21 +60,21 @@ async function escapeGemfile(option: Option) {
     await io.cp(option.pluginsFile, "Gemfile");
 }
 
-async function installDanger(option: Option) {
-    if (option.pluginsFile == null) {
-        await exec.exec(`gem install danger --version "${option.dangerVersion}"`, undefined, { failOnStdErr: true });
-    } else {
-        if (option.installPath == null) {
-            await exec.exec(`bundle install --jobs 4 --retry 3`, undefined, {
-                failOnStdErr: option.failOnStdErrWhenBundler,
-            });
-        } else {
-            await exec.exec(`bundle install --path=${option.installPath} --jobs 4 --retry 3`, undefined, {
-                failOnStdErr: option.failOnStdErrWhenBundler,
-            });
-        }
-    }
-}
+// async function installDanger(option: Option) {
+//     if (option.pluginsFile == null) {
+//         await exec.exec(`gem install danger --version "${option.dangerVersion}"`, undefined, { failOnStdErr: true });
+//     } else {
+//         if (option.installPath == null) {
+//             await exec.exec(`bundle install --jobs 4 --retry 3`, undefined, {
+//                 failOnStdErr: option.failOnStdErrWhenBundler,
+//             });
+//         } else {
+//             await exec.exec(`bundle install --path=${option.installPath} --jobs 4 --retry 3`, undefined, {
+//                 failOnStdErr: option.failOnStdErrWhenBundler,
+//             });
+//         }
+//     }
+// }
 
 // ignore:  {RubyPath}/gems/2.6.0/gems/git-1.5.0/lib/git/lib.rb:1029: warning: Insecure world writable dir {RubyBinPath} in PATH, mode 040777
 async function ignoreRubyWarning() {

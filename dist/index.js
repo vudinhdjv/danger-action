@@ -81,12 +81,12 @@ async function installDanger(option) {
     }
     else {
         if (option.installPath == null) {
-            await exec.exec(`/usr/local/lib/ruby/gems/3.1.0/bin/bundle install --jobs 4 --retry 3`, undefined, {
+            await exec.exec(`/Users/vu.dinh/.gem/bin/bundle install --jobs 4 --retry 3`, undefined, {
                 failOnStdErr: option.failOnStdErrWhenBundler,
             });
         }
         else {
-            await exec.exec(`/usr/local/lib/ruby/gems/3.1.0/bin/bundle install --path=${option.installPath} --jobs 4 --retry 3`, undefined, {
+            await exec.exec(`/Users/vu.dinh/.gem/bin/bundle install --path=${option.installPath} --jobs 4 --retry 3`, undefined, {
                 failOnStdErr: option.failOnStdErrWhenBundler,
             });
         }
@@ -103,7 +103,7 @@ async function runDanger(option) {
         });
     }
     else {
-        await exec.exec(`/usr/local/lib/ruby/gems/3.1.0/bin/bundle exec danger --dangerfile=${option.dangerFile} --danger_id=${option.dangerId}`, undefined, {
+        await exec.exec(`/Users/vu.dinh/.gem/bin/bundle exec danger --dangerfile=${option.dangerFile} --danger_id=${option.dangerId}`, undefined, {
             failOnStdErr: option.failOnStdErrWhenDanger,
         });
     }

@@ -103,7 +103,7 @@ async function runDanger(option) {
         });
     }
     else {
-        await exec.exec(`vendor/bundle/ruby/3.1.0/bin/bundle exec danger --dangerfile=${option.dangerFile} --danger_id=${option.dangerId}`, undefined, {
+        await exec.exec(`vendor/bundle/ruby/3.1.0/bin/danger --dangerfile=${option.dangerFile} --danger_id=${option.dangerId}`, undefined, {
             failOnStdErr: option.failOnStdErrWhenDanger,
         });
     }

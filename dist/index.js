@@ -86,7 +86,10 @@ async function installDanger(option) {
             });
         }
         else {
-            await exec.exec(`/usr/local/lib/ruby/gems/3.1.0/bin/bundle install --path=${option.installPath} --jobs 4 --retry 3`, undefined, {
+            await exec.exec(`/usr/local/lib/ruby/gems/3.1.0/bin/bundle config set --local path 'vendor/bundle'`, undefined, {
+                failOnStdErr: option.failOnStdErrWhenBundler,
+            });
+            await exec.exec(`/usr/local/lib/ruby/gems/3.1.0/bin/bundle install --jobs 4 --retry 3`, undefined, {
                 failOnStdErr: option.failOnStdErrWhenBundler,
             });
         }
